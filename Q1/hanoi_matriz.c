@@ -2,14 +2,10 @@
 #include <string.h>
 #include "hanoi_matriz.h"
 
-/* ------------------------------------------------------------------ */
-/* Potencias de 3 pre-calculadas para a conversao base-3              */
-/* pot3[i] = 3^i                                                       */
+                                        
 const int pot3[NUM_DISCOS + 1] = {1, 3, 9, 27, 81, 243};
 
-/* ================================================================== */
-/* Conversoes configuracao <-> indice                                  */
-/* ================================================================== */
+
 
 int config_para_indice(const Configuracao *c)
 {
@@ -27,19 +23,13 @@ void indice_para_config(int indice, Configuracao *c)
     }
 }
 
-/* ================================================================== */
-/* Logica de movimentos validos                                        */
-/* ================================================================== */
+
 
 int topo_do_pino(const Configuracao *c, int pino)
 {
     int topo = -1; /* Inicializa com o valor padrão (pino vazio) */
 
-    /*
-     * O disco "de topo" em um pino e o menor disco presente nele,
-     * pois discos menores ficam sobre os maiores.
-     * Discos sao numerados 0 (menor) a N-1 (maior).
-     */
+
     for (int d = 0; d < NUM_DISCOS; d++) {
         if (c->pino[d] == pino) {
             topo = d; /* Armazena o disco encontrado */
@@ -74,9 +64,7 @@ int movimento_valido(const Configuracao *c, int disco, int pino_dest)
     return valido; /* Unico return da funcao */
 }
 
-/* ================================================================== */
-/* Construcao do grafo                                                 */
-/* ================================================================== */
+
 
 void construir_grafo(GrafoMatriz *g)
 {
@@ -117,9 +105,7 @@ void construir_grafo(GrafoMatriz *g)
     }
 }
 
-/* ================================================================== */
-/* Dijkstra sobre matriz de adjacencia (pesos = 1)                    */
-/* ================================================================== */
+
 
 void dijkstra_matriz(const GrafoMatriz *g, int origem, ResultadoDijkstra *res)
 {
@@ -160,9 +146,7 @@ void dijkstra_matriz(const GrafoMatriz *g, int origem, ResultadoDijkstra *res)
     }
 }
 
-/* ================================================================== */
-/* Utilitarios de impressao                                            */
-/* ================================================================== */
+
 
 void imprimir_config(const Configuracao *c)
 {
@@ -201,9 +185,7 @@ void imprimir_caminho(const ResultadoDijkstra *res)
     }
 }
 
-/* ================================================================== */
-/* Configuracoes padrao                                                */
-/* ================================================================== */
+
 
 void config_inicial(Configuracao *c)
 {

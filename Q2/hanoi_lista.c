@@ -2,13 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "hanoi_lista.h"
-
-/* ------------------------------------------------------------------ */
 const int pot3[NUM_DISCOS + 1] = {1, 3, 9, 27, 81, 243};
 
-/* ================================================================== */
-/* Inicializacao e liberacao do grafo                                  */
-/* ================================================================== */
 
 void grafo_inicializar(GrafoLista *g)
 {
@@ -65,7 +60,7 @@ int topo_do_pino(const Configuracao *c, int pino)
         }
     }
     
-    return topo; /* Unico return */
+    return topo; 
 }
 
 int movimento_valido(const Configuracao *c, int disco, int pino_dest)
@@ -87,9 +82,7 @@ int movimento_valido(const Configuracao *c, int disco, int pino_dest)
     return valido; /* Unico return */
 }
 
-/* ================================================================== */
-/* Insercao de aresta na lista (sem duplicatas)                       */
-/* ================================================================== */
+
 
 int inserir_aresta(GrafoLista *g, int u, int v) 
 {
@@ -120,9 +113,6 @@ int inserir_aresta(GrafoLista *g, int u, int v)
     return inseriu; /* Unico return */
 }
 
-/* ================================================================== */
-/* Construcao do grafo                                                 */
-/* ================================================================== */
 
 void construir_grafo(GrafoLista *g)
 {
@@ -158,9 +148,7 @@ void construir_grafo(GrafoLista *g)
     }
 }
 
-/* ================================================================== */
-/* Min-Heap binario para Dijkstra eficiente                           */
-/* ================================================================== */
+
 
 typedef struct {
     int vertice;

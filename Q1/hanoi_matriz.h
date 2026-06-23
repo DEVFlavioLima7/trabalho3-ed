@@ -1,33 +1,17 @@
 #ifndef HANOI_MATRIZ_H
 #define HANOI_MATRIZ_H
-
-/*
- * Torre de Hanoi - Grafo com Matriz de Adjacencia
- * Disciplina: Estruturas de Dados II - UFPI/CSHNB
- *
- * Com N=5 discos e 3 pinos, cada configuracao e um vetor de 5 posicoes
- * onde config[i] indica o pino (0, 1 ou 2) em que o disco i esta.
- * Total de vertices: 3^5 = 243
- */
-
 #define NUM_DISCOS  5
 #define NUM_PINOS   3
 #define NUM_VERTICES 243   /* 3^5 */
 #define INF          99999
 
-/* ------------------------------------------------------------------
- * Estrutura do grafo (matriz de adjacencia)
- * ------------------------------------------------------------------ */
 typedef struct {
     int adj[NUM_VERTICES][NUM_VERTICES]; /* 1 se ha aresta, 0 caso contrario */
     int num_vertices;
     int num_arestas;
 } GrafoMatriz;
 
-/* ------------------------------------------------------------------
- * Representacao de uma configuracao de discos
- * config[0] = pino do disco 0 (menor), ..., config[N-1] = pino do disco N-1
- * ------------------------------------------------------------------ */
+
 typedef struct {
     int pino[NUM_DISCOS];
 } Configuracao;
@@ -42,10 +26,7 @@ typedef struct {
     int destino;
 } ResultadoDijkstra;
 
-/* ------------------------------------------------------------------
- * Conversoes entre configuracao e indice (base 3)
- * config -> indice: soma config[i] * 3^i
- * ------------------------------------------------------------------ */
+
 int config_para_indice(const Configuracao *c);
 void indice_para_config(int indice, Configuracao *c);
 

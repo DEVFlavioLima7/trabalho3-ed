@@ -3,7 +3,7 @@
 #include <time.h>
 #include "hanoi_lista.h"
 
-/* ------------------------------------------------------------------ */
+
 static void ler_configuracao(Configuracao *c, const char *nome)
 {
     printf("\n=== Configuracao %s ===\n", nome);
@@ -34,9 +34,7 @@ static void exibir_info_grafo(const GrafoLista *g)
     printf("  Economia de memoria         : %ld bytes\n", mem_matriz - mem_lista);
 }
 
-/* ================================================================== */
-/* main                                                               */
-/* ================================================================== */
+
 int main(void)
 {
     printf("=======================================================\n");
@@ -44,7 +42,7 @@ int main(void)
     printf(" Disciplina: Estruturas de Dados II - UFPI/CSHNB       \n");
     printf("=======================================================\n");
 
-    /* ---- 1. Construcao do grafo (feita apenas uma vez) ----------- */
+
     printf("\n[1] Construindo o grafo de movimentos...\n");
 
     GrafoLista grafo;
@@ -57,7 +55,6 @@ int main(void)
     exibir_info_grafo(&grafo);
     printf("  Tempo de construcao: %.6f segundos\n", tempo_construcao);
 
-    /* ---- 2. Menu Interativo (Loop) ------------------------------- */
     int opcao;
     do {
         printf("\n=======================================================\n");

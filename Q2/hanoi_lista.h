@@ -1,40 +1,26 @@
 #ifndef HANOI_LISTA_H
 #define HANOI_LISTA_H
 
-/*
- * Torre de Hanoi - Grafo com Lista de Adjacencia
- * Disciplina: Estruturas de Dados II - UFPI/CSHNB
- *
- * Mesma logica da Questao 1, mas armazena o grafo em lista encadeada.
- * Total de vertices: 3^5 = 243
- */
 
 #define NUM_DISCOS   5
 #define NUM_PINOS    3
 #define NUM_VERTICES 243
 #define INF          99999
 
-/* ------------------------------------------------------------------
- * No da lista encadeada de adjacencia
- * ------------------------------------------------------------------ */
 typedef struct No {
     int vertice;      /* indice do vizinho */
     int peso;         /* peso da aresta (sempre 1) */
     struct No *prox;
 } No;
 
-/* ------------------------------------------------------------------
- * Grafo representado por lista de adjacencia
- * ------------------------------------------------------------------ */
+
 typedef struct {
     No *lista[NUM_VERTICES]; /* cabeca da lista de cada vertice */
     int num_vertices;
     int num_arestas;
 } GrafoLista;
 
-/* ------------------------------------------------------------------
- * Configuracao de discos (mesmo modelo da Q1)
- * ------------------------------------------------------------------ */
+
 typedef struct {
     int pino[NUM_DISCOS];
 } Configuracao;
